@@ -171,6 +171,29 @@ xyplot(SalePrice~OvrCondQual, data = Ames, pch=19)
 cor(SalePrice~OvrCondQual, data = Ames)
 ```
 
+```{r}
+Ames <- Ames %>% 
+  mutate(Year_Built_Cond = Year_Built * Overall_Cond)
+```
 
+```{r}
+Ames <- Ames %>% 
+  mutate(Total_SF_Bsmt_SF = TotalSqFt * Total_Bsmt_SF)
+```
+
+```{r}
+Ames <- Ames %>% 
+  mutate(CA.yes = ifelse(Central_Air == 'Y', 1, 0))
+```
+
+```{r}
+Ames <- Ames %>% 
+  mutate(Garage.no = ifelse(Garage_Type == 'NA', 1, 0))
+```
+
+```{r}
+Ames <- Ames %>% 
+  rename(Y = SalePrice, X1 = Lot_Area, X2 = Bedroom_AbvGr, X3 = TotalBath, X4 = Total_Bsmt_SF, x5 = Garage_Area, X6 = Year_Built, X7 = TotalSqFt, X8 = OvrCondQual, X9 = Garage_Type, X10 = Central_Air, X11 = Year_Built_Cond, X12 = Total_SF_Bsmt_SF)
+```
 
 
